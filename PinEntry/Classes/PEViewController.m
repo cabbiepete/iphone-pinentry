@@ -48,7 +48,6 @@
 	self.pin = @"";
 }
 
-
 - (void)setPin:(int)p enabled:(BOOL)yes
 {
 	pins[p].image = yes ? [UIImage imageNamed:@"PEPin-on.png"] : [UIImage imageNamed:@"PEPin-off.png"];
@@ -102,5 +101,6 @@
 	keyboard.detailButon = PEKeyboardDetailNone;
 	[self redrawPins];
 }
+
 
 @end

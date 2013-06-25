@@ -148,4 +148,21 @@ static PEViewController *VerifyController()
 	[self.pinDelegate pinEntryControllerDidCancel:self];
 }
 
+#pragma Auto rotate for ipad
+
+-(NSUInteger)supportedInterfaceOrientations {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		return UIInterfaceOrientationMaskAll;
+	}
+	return UIInterfaceOrientationMaskPortrait;
+}
+
+-(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		return YES;
+	}
+	return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+}
+
+
 @end

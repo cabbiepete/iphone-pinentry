@@ -106,7 +106,9 @@ static PEViewController *VerifyController()
 				}
 			}
 			break;
+		}
 		case PS_ENTER1:
+		{
 			pinEntry1 = [controller.pin intValue];
 			PEViewController *c = VerifyController();
 			c.delegate = self;
@@ -115,7 +117,9 @@ static PEViewController *VerifyController()
 			pinStage = PS_ENTER2;
 			[c autorelease];
 			break;
+		}
 		case PS_ENTER2:
+		{
 			if([controller.pin intValue] != pinEntry1) {
 				PEViewController *c = NewController();
 				c.delegate = self;
@@ -125,8 +129,11 @@ static PEViewController *VerifyController()
 				[self.pinDelegate pinEntryController:self changedPin:[controller.pin intValue]];
 			}
 			break;
+		}
 		default:
+		{
 			break;
+		}
 	}
 }
 

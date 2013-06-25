@@ -291,6 +291,7 @@
 				INFOPLIST_FILE = "Demo/PinEntry-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = PinEntry;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -304,6 +305,7 @@
 				INFOPLIST_FILE = "Demo/PinEntry-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = PinEntry;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

@@ -45,11 +45,11 @@
 	IBOutlet UILabel *promptLabel;
 	UIImageView *pins[4];
 	NSString *pin;
-	id <PEViewControllerDelegate> delegate;
+	id <PEViewControllerDelegate> __weak delegate;
 }
-@property (nonatomic, readonly, retain) NSString *pin;
+@property (nonatomic, readonly, strong) NSString *pin;
 @property (nonatomic, readwrite, copy) NSString *prompt;
-@property (nonatomic, readwrite, assign) id <PEViewControllerDelegate> delegate;
+@property (nonatomic, readwrite, weak) id <PEViewControllerDelegate> delegate;
 
 - (void)resetPin;
 

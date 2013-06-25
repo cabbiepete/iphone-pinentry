@@ -63,7 +63,7 @@ static PEViewController *VerifyController()
 	c.delegate = n;
 	n->pinStage = PS_VERIFY;
 	n->verifyOnly = YES;
-	return [n autorelease];
+	return n;
 }
 
 + (PEPinEntryController *)pinChangeController
@@ -71,10 +71,10 @@ static PEViewController *VerifyController()
 	PEViewController *c = EnterController();
 	PEPinEntryController *n = [[self alloc] initWithRootViewController:c];
 	c.delegate = n;
-	c.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:n action:@selector(cancelController)] autorelease];
+	c.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:n action:@selector(cancelController)];
 	n->pinStage = PS_VERIFY;
 	n->verifyOnly = NO;
-	return [n autorelease];
+	return n;
 }
 
 + (PEPinEntryController *)pinCreateController
@@ -84,13 +84,14 @@ static PEViewController *VerifyController()
 	c.delegate = n;
 	n->pinStage = PS_ENTER1;
 	n->verifyOnly = NO;
-	return [n autorelease];
+	return n;
 }
 
 - (void)pinEntryControllerDidEnteredPin:(PEViewController *)controller
 {
 	switch (pinStage) {
 		case PS_VERIFY:
+        {
 			if(![self.pinDelegate pinEntryController:self shouldAcceptPin:[controller.pin intValue]]) {
 				controller.prompt = @"Wrong passcode, retry";
 				[controller resetPin];

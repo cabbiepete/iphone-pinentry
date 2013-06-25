@@ -31,6 +31,8 @@
 
 @required
 - (BOOL)pinEntryController:(PEPinEntryController *)c shouldAcceptPin:(NSUInteger)pin;
+
+@optional
 - (void)pinEntryController:(PEPinEntryController *)c changedPin:(NSUInteger)pin;
 - (void)pinEntryControllerDidCancel:(PEPinEntryController *)c;
 
@@ -46,9 +48,9 @@
 	NSUInteger pinStage;
 	NSUInteger pinEntry1;
 	PEViewController *pinController;
-	id <PEPinEntryControllerDelegate> pinDelegate;
+	id <PEPinEntryControllerDelegate> __weak pinDelegate;
 }
-@property (nonatomic, readwrite, assign) id <PEPinEntryControllerDelegate> pinDelegate;
+@property (nonatomic, readwrite, weak) id <PEPinEntryControllerDelegate> pinDelegate;
 @property (nonatomic, readonly) BOOL verifyOnly;
 
 + (PEPinEntryController *)pinVerifyController;

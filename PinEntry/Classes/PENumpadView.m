@@ -87,10 +87,6 @@ NSString *kPinEntryKeyboardCode = @"kPinEntryKeyboardCode";
 	}
 }
 
-- (void)dealloc
-{
-	[super dealloc];
-}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -122,7 +118,7 @@ NSString *kPinEntryKeyboardCode = @"kPinEntryKeyboardCode";
 		switch(activeClip) {
 			case 9:
 				activeClip = -1;
-				if([detail isEqualToString: @""]) {
+				if([detail isEqualToString:@""]) {
 					[self touchesCancelled:touches withEvent:event];
 					return;
 				}

@@ -102,7 +102,6 @@ static PEViewController *VerifyController()
 					pinStage = PS_ENTER1;
 					[[self navigationController] pushViewController:c animated:YES];
 					self.viewControllers = [NSArray arrayWithObject:c];
-					[c release];
 				}
 			}
 			break;
@@ -115,7 +114,6 @@ static PEViewController *VerifyController()
 			[[self navigationController] pushViewController:c animated:YES];
 			self.viewControllers = [NSArray arrayWithObject:c];
 			pinStage = PS_ENTER2;
-			[c autorelease];
 			break;
 		}
 		case PS_ENTER2:
